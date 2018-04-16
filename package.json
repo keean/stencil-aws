@@ -15,8 +15,10 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@stencil/core": "^0.7.22",
-    "@stencil/router": "latest"
+    "@stencil/core": "0.7.24",
+    "@stencil/router": "latest",
+    "aws-sdk": "^2.224.1",
+    "object-keys": "1.0.11"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",

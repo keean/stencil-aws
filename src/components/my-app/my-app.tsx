@@ -1,4 +1,5 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
+import * as CognitoIdentityServiceProvider from 'aws-sdk/clients/cognitoidentityserviceprovider';
 
 
 @Component({
@@ -7,7 +8,22 @@ import { Component } from '@stencil/core';
 })
 export class MyApp {
 
+  @Prop({context: 'isServer'}) private isServer: boolean;
+
+  authenticate() {
+    console.log('begin authentication');
+    if (this.isServer) {
+      console.log('on server');
+      return
+    }
+    console.log('on client');
+    const cisp = new CognitoIdentityServiceProvider();
+    console.log('CISP: ', cisp);
+  }
+
   render() {
+    this.authenticate();
+
     return (
       <div>
         <header>
